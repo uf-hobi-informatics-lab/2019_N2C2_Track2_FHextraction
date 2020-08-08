@@ -1,0 +1,5 @@
+.DS_Store
+.idea
+ClinicalTransformerNER
+results/pred
+models

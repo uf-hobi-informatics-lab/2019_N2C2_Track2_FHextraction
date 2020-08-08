@@ -1,0 +1,26 @@
+doc_test_1055	Grandfather	Maternal	LivingStatus	4
+doc_test_1055	Uncle	Paternal	LivingStatus	4
+doc_test_1055	Father	NA	Observation	muscle weakness	Negated
+doc_test_1055	Father	NA	Observation	neurodevelopmental problems	Negated
+doc_test_1055	Father	NA	Observation	lactose intolerance	Non_Negated
+doc_test_1055	Aunt	Maternal	Observation	thalassemia	Non_Negated
+doc_test_1055	Aunt	Maternal	Observation	anemia	Non_Negated
+doc_test_1055	Mother	NA	Observation	migraines	Negated
+doc_test_1055	Mother	NA	Observation	upper respiratory infections	Non_Negated
+doc_test_1055	Mother	NA	Observation	hypothyroidism	Non_Negated
+doc_test_1055	Mother	NA	Observation	body odors	Negated
+doc_test_1055	Mother	NA	Observation	stroke-like episodes	Negated
+doc_test_1055	Mother	NA	Observation	chronic fatigue syndrome	Negated
+doc_test_1055	Mother	NA	Observation	twitches and "warm spots" in her thighs	Non_Negated
+doc_test_1055	Mother	NA	Observation	vomiting	Negated
+doc_test_1055	Mother	NA	Observation	lethargy	Negated
+doc_test_1055	Mother	NA	Observation	eye and lip twitches 	Non_Negated
+doc_test_1055	Grandfather	Maternal	Observation	similar symptoms	Negated
+doc_test_1055	Grandmother	Maternal	Observation	scoliosis	Non_Negated
+doc_test_1055	Grandmother	Maternal	Observation	core muscle disease	Non_Negated
+doc_test_1055	Grandmother	Maternal	Observation	club feet	Non_Negated
+doc_test_1055	Grandmother	Maternal	Observation	congenital knee contractures	Non_Negated
+doc_test_1055	Aunt	Paternal	Observation	retinal disease	Non_Negated
+doc_test_1055	Aunt	Paternal	Observation	eye problems	Non_Negated
+doc_test_1055	Sister	NA	Observation	innocent heart murmur	Non_Negated
+doc_test_1055	Sister	NA	Observation	neurodevelopmental problems	Negated
