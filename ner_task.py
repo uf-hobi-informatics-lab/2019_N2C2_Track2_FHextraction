@@ -1,6 +1,8 @@
 from ClinicalTransformerNER.src.run_transformer_batch_prediction import main as ner
 from config import NER_MODELS, RAW_TEXT_DIR, BIO_TEXT_DIR, NER_OUTPUT_ROOT
 from pathlib import Path
+import logging
+import torch
 
 
 class Args:
@@ -21,16 +23,18 @@ class Args:
         self.do_copy = False
         self.progress_bar = False
         self.use_crf = False
+        self.logger = logging.getLogger()
 
 
 def ner_prediction():
     args = Args()
     args.raw_text_dir = RAW_TEXT_DIR
     args.preprocessed_text_dir = BIO_TEXT_DIR
+    args.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     for ner_model in NER_MODELS:
         model_path = Path(ner_model)  # #./models/2019_n2c2_fh_ner_0
-        mid = ner_model.name.split("_")[-1]
-        args.pretrained_model = model_path
+        mid = model_path.name.split("_")[-1]
+        args.pretrained_model = ner_model
         args.output_dir = NER_OUTPUT_ROOT.format(mid)
         # Path(args.output_dir).mkdir(parents=True, exist_ok=True)
         ner(args)

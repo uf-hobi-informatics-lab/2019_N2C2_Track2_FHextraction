@@ -16,11 +16,11 @@ FMSIDE_MODEL = "./models/2019_n2c2_fh_fms/production"
 LS_MODEL = "./models/2019_n2c2_fh_lss/production"
 RELATION_MODEL = "./models/2019_n2c2_fh_rel"
 
-RAW_TEXT_DIR = "../sample_data/raw_text"
-PREPROCESSED_TEXT_DIR = "../sample_data/preprocessed_text"
-TEXT_AS_SENT_DIR = "../sample_data/text_as_sents"
-BIO_TEXT_DIR = "../sample_data/bio"
-NER_OUTPUT_ROOT = "../results/pred/ner_{}"
+RAW_TEXT_DIR = "./sample_data/raw_text"
+PREPROCESSED_TEXT_DIR = "./sample_data/preprocessed_text"
+TEXT_AS_SENT_DIR = "./sample_data/text_as_sents"
+BIO_TEXT_DIR = "./sample_data/bio"
+NER_OUTPUT_ROOT = "./results/pred/ner_{}"
 
 CLS_OUTPUT_ROOT = "./results/pred/{}_{}"
 NER_TYPING_ROOT = "./sample_data/cls"
@@ -30,8 +30,10 @@ FMS_TEST = "./sample_data/cls/fmrs_{}"
 LSS_TEST = "./sample_data/cls/lss_{}"
 REL_OUTPUT_ROOT = "./results/pred/rel"
 REL_TEST = "./sample_data/rel"
+REL_OUTPUT_ROOTa = "./results/pred/rel1"
+REL_TESTa = "./sample_data/rel1"
 
-ENSEMBLE_THRESHOLD = 3
+ENSEMBLE_THRESHOLD = 2
 GLOBAL_CUTOFF = 2
 
 GOLD_STANDARD_1 = "./results/gs/test_subtask1_1055.tsv"

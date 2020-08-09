@@ -18,7 +18,6 @@ do
   rm -f 2019_n2c2_fh_ner_${i}.zip
   wget https://transformer-models.s3.amazonaws.com/2019_n2c2_fh_ner_${i}.zip
   unzip 2019_n2c2_fh_ner_${i}.zip
-#  mv 2019_n2c2_fh_ner_${i} ../models/2019_n2c2_fh_ner_${i}
   rm -f 2019_n2c2_fh_ner_${i}.zip
 done
 
@@ -29,7 +28,6 @@ do
   rm -f 2019_n2c2_fh_"${i}".zip
   wget https://transformer-models.s3.amazonaws.com/2019_n2c2_fh_"${i}".zip
   unzip 2019_n2c2_fh_"${i}".zip
-#  mv 2019_n2c2_fh_ner_"${i}" ../models/2019_n2c2_fh_ner_"${i}"
   rm -f 2019_n2c2_fh_"${i}".zip
 done
 

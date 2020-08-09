@@ -78,10 +78,21 @@ def get_pr_f1(tp, fp, fn):
     print("TP\t\tFP\t\tFN\t\t")
     print("{}\t{} \t{}".format(tp, fp, fn))
 
-    precision = tp / float(tp + fp)
-    recall = tp / float(tp + fn)
+    try:
+        precision = tp / float(tp + fp)
+    except ZeroDivisionError:
+        precision = 0
 
-    f1 = 2 * precision * recall / (precision + recall)
+    try:
+        recall = tp / float(tp + fn)
+    except ZeroDivisionError:
+        recall = 0
+
+    try:
+        f1 = 2 * precision * recall / (precision + recall)
+    except ZeroDivisionError:
+        f1 = 0
+
     print("Prevision\tRecall\tF1")
     print("{:.4f}\t{:.4f} \t{:.4f}".format(precision, recall, f1))
     print()

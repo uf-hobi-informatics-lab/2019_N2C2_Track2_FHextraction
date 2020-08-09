@@ -6,7 +6,7 @@ from pathlib import Path
 from collections import Counter
 from itertools import permutations
 from config import (NER_TYPING_ROOT, TEXT_AS_SENT_DIR, PREPROCESSED_TEXT_DIR,
-                    OBN_TEST, LSS_TEST, FMS_TEST, CLS_OUTPUT_ROOT,
+                    OBN_TEST, LSS_TEST, FMS_TEST, CLS_OUTPUT_ROOT, REL_TESTa, REL_OUTPUT_ROOTa,
                     REL_TEST, REL_OUTPUT_ROOT, ENSEMBLE_THRESHOLD, GLOBAL_CUTOFF,
                     PRED_SUBTASK_1, PRED_SUBTASK_2)
 
@@ -234,9 +234,17 @@ def bio2typing(res_dir, test_fids, tag=0):
                 raise RuntimeError(f"{en_type} is not recognized for {en}")
 
         # # fms, fmr share the same dir
-        to_tsv(fm, Path(FMS_TEST.format(tag)) / "test.tsv")
-        to_tsv(ob, Path(OBN_TEST.format(tag)) / "test.tsv")
-        to_tsv(ls, Path(LSS_TEST.format(tag)) / "test.tsv")
+        pfm = Path(FMS_TEST.format(tag))
+        pfm.mkdir(exist_ok=True, parents=True)
+        to_tsv(fm, pfm / "test.tsv")
+
+        pfo = Path(OBN_TEST.format(tag))
+        pfo.mkdir(exist_ok=True, parents=True)
+        to_tsv(ob, pfo / "test.tsv")
+
+        pfl = Path(LSS_TEST.format(tag))
+        pfl.mkdir(exist_ok=True, parents=True)
+        to_tsv(ls, pfl / "test.tsv")
 
         pkl_save(fm, ner_typing_root / f"fm_{tag}.pkl")
         pkl_save(ob, ner_typing_root / f"ob_{tag}.pkl")
@@ -500,7 +508,8 @@ def bio2relation():
     TAG = "pred"
     sdiff = []
     relation_types = []
-    pred_relations_plan = []
+    pred_relations_plan1 = []
+    pred_relations_plan2 = []
     mapping = []
 
     typed_entities = pkl_load(Path(NER_TYPING_ROOT) / "typed_entities_ens.pkl")
@@ -528,14 +537,23 @@ def bio2relation():
 
             bert_rels = insert_tags_for_relation(sents[sie1], sents[sie2], en1[0], en2[0])
             tagged_s1, tagged_s2, pure_text1, pure_text2 = bert_rels
+            pred_relations_plan1.append(
+                [TAG, tagged_s1, tagged_s2, pure_text1, pure_text2, f"{abs(sie1 - sie2)}", str()])
             tp = generate_bert_relation_without_extra_sentence(sents[sie1], sents[sie2],
                                                                 en1[0], en2[0],
                                                                 sents, sie1,sie2)
-            pred_relations_plan.append([TAG, tp, f"{abs(sie1 - sie2)}"])
+            pred_relations_plan2.append([TAG, tp, f"{abs(sie1 - sie2)}"])
             mapping.append((doc_id, en1, en2))
 
-    pkl_save(mapping, os.path.join(REL_TEST, "relation_mappings.tsv"))
-    to_tsv(pred_relations_plan, os.path.join(REL_TEST, "test.tsv"))
+    prel = Path(REL_TEST)
+    prel.mkdir(parents=True, exist_ok=True)
+    pkl_save(mapping, prel / "relation_mappings.tsv")
+    to_tsv(pred_relations_plan2, prel / "test.tsv")
+
+    prel = Path(REL_TESTa)
+    prel.mkdir(parents=True, exist_ok=True)
+    pkl_save(mapping, prel / "relation_mappings.tsv")
+    to_tsv(pred_relations_plan1, prel / "test.tsv")
 
 
 def to_task2_output(output, ofn):
@@ -581,3 +599,8 @@ def gen_res_for_subtask2():
     rel_preds = load_bert_results(Path(REL_OUTPUT_ROOT) / "test_results.txt")
     rel_res = format_bert_output(rel_preds, mapping)
     to_task2_output(rel_res, PRED_SUBTASK_2)
+
+    # mapping = pkl_load(os.path.join(REL_TESTa, "relation_mappings.tsv"))
+    # rel_preds = load_bert_results(Path(REL_OUTPUT_ROOTa) / "test_results.txt")
+    # rel_res = format_bert_output(rel_preds, mapping)
+    # to_task2_output(rel_res, PRED_SUBTASK_2)

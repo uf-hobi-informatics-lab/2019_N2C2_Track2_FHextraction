@@ -3,3 +3,6 @@
 ClinicalTransformerNER
 results/pred
 models
+sample_data/cls
+sample_data/rel
+__pycache__
