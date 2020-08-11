@@ -15,16 +15,11 @@
 - you can run ```. shell/setup.sh``` to download all necessary models
 
 ## data
-- we have the doc_test_1055.txt as the sample test from the challenge test dataset.
-- we did not include text preprocessing (tokenization) here. You can develop you own method.
-- if you need the whole dataset, please contact the 2019 n2c2 challenge organizer.
+- we did not include any data in the current repo due to DUA. If you need our sample data or the whole dataset, please contact the 2019 n2c2 challenge organizer.
 
 ## project description
-- we have sample preprocessed data (partial challenge data) in the sample_data dir for each subtasks in test
 - we have all the fine-tuned models available for download through Amazon AWS S3
-- You can run system on the sample data using ```python app.py```, the results will be generated in ./results/pred
-- we have the gold standard for the sample data in ./results/gs
-- Performances will be printed in console
+- You can run system on the sample data using ```python app.py```
 - The system here is the best one we reported in our publication.
 
 ## models

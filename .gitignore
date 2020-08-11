@@ -1,8 +1,7 @@
 .DS_Store
 .idea
 ClinicalTransformerNER
-results/pred
+results
 models
-sample_data/cls
-sample_data/rel
+sample_data
 __pycache__
