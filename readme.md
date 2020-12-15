@@ -35,7 +35,7 @@
 ## cite our work
 please cite our work:
 
-- https://medinform.jmir.org/2020/12/e22982#ref57
+- https://medinform.jmir.org/2020/12/e22982
 ```
 Yang X, Zhang H, He X, Bian J, Wu Y
 Extracting Family History of Patients From Clinical Narratives: Exploring an End-to-End Solution With Deep Learning Models
