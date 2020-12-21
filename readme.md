@@ -41,4 +41,5 @@ Yang X, Zhang H, He X, Bian J, Wu Y
 Extracting Family History of Patients From Clinical Narratives: Exploring an End-to-End Solution With Deep Learning Models
 JMIR Med Inform 2020;8(12):e22982
 DOI: 10.2196/22982
+PMID: 33320104
 ```
