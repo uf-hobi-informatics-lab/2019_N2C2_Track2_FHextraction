@@ -15,7 +15,8 @@
 - you can run ```. shell/setup.sh``` to download all necessary models
 
 ## data
-- we did not include any data in the current repo due to DUA. If you need our sample data or the whole dataset, please contact the 2019 n2c2 challenge organizer.
+- we did not include any data in the current repo due to DUA. If you need the whole dataset, please contact the 2019 n2c2 challenge organizer.
+- we can provide the sample data of our experiments (including raw and preprocessed data), if you have DUA. Please contact us via github or email. 
 
 ## project description
 - we have all the fine-tuned models available for download through Amazon AWS S3
